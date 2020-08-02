@@ -20,6 +20,18 @@ cv2.imshow('slever programmer car detertor', black_n_white)
 #detect cars of any size
 cars = car_tracker.detectMultiScale(black_n_white)
 
+for (x,y, w, h) in cars:
+    cv2.rectangle(img, (x,y), (x+w, y+h), (0, 0,255),2)
+    #             image, x,y, width, height, color, thickness
+
+
+#draw rectangles around the cars
+car1 = cars[0]
+(x,y,w,h) =  car1  #unpacking car1
+cv2.rectangle(img, (x,y), (x+w, y+h), (0, 0,255),2)
+
+
+cv2.imshow('clever  car detector', img)
 # dont autoclose (listen for key press)
 cv2.waitKey()
 
